@@ -43,6 +43,12 @@ const eqObjects = function(object1, object2) {
         if (result === false) {
           return false;
         }
+      // if the value of the key is not an array, and is an object
+      } else if ((typeof object1[value]) === 'object') {
+        let result = eqObjects(object1[value], object2[value]);
+          if (!result) {
+            return false;
+          }
       // if the value of the key is a primitive value
       } else if (object1[value] !== object2[value]) {
         return false;
@@ -62,10 +68,19 @@ const abc = {a: '1', b: '2', c: '3'};
 assertEqual(eqObjects(ab, abc), false);
 
 
-// Testing Arrays as Values
+// // Testing Arrays as Values
 const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
 assertEqual(eqObjects(cd, dc), true);
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false);
+
+// Testing nested Objects as Values
+const obj1 = {a: {b: 1}};
+const obj2 = {a: {b: 1}};
+assertEqual(eqObjects(obj1,obj2), true);
+
+assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true) // => true
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false) // => false
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false) // => false
