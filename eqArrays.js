@@ -4,6 +4,9 @@
 // eqArrays function
 const eqArrays = function(arr1, arr2) {
   let result = '';
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
   for (let i = 0; i < arr1.length; i++) {
     // if the item in the array is an array
     if (Array.isArray(arr1[i])) {
@@ -19,7 +22,7 @@ const eqArrays = function(arr1, arr2) {
     } else if (arr1[i] === arr2[i]) {
       result = true;
     } else {
-      result = false;
+      return false;
     }
   }
   return result;
