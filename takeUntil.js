@@ -61,3 +61,5 @@ assertArraysEqual(results2, ["I've", "been", "to", "Hollywood"]);
 assertArraysEqual(takeUntil(data3, x => x === 'chicken'), ["cat","mouse"]);
 assertArraysEqual(takeUntil(data4, x => x < 100), [324,123]);
 assertArraysEqual(takeUntil(data1, x => x < -3), data1);
+
+module.exports = takeUntil;

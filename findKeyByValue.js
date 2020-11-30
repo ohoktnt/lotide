@@ -1,6 +1,8 @@
 // Implement findKeyByValue in Lotide
 // function to search for a key on an object where its value matches a given value
 
+const findKey = require("./findKey");
+
 // Assertion function
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
@@ -37,3 +39,5 @@ assertEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama");
 assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);
 assertEqual(findKeyByValue(someFruitColours, "green"), "pear");
 assertEqual(findKeyByValue(someFruitColours, "red"), 'apple');
+
+module.exports = findKeyByValue;

@@ -47,5 +47,4 @@ assertArraysEqual(map(names, word => word[0]), ['T','L','J']);
 assertArraysEqual(map(numbers, num => num*10), [50,70,30]);
 assertArraysEqual(map(animals, animal => animal + "1"), ['dog1', 'fish1', 'cat1', 'tiger1']);
 
-
-
+module.exports = map;

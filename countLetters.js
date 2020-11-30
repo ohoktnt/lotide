@@ -27,3 +27,5 @@ const countLetters = function(str) {
 // Testing
 console.log(countLetters("tammy is cool"));
 assertEqual(countLetters('LHL')["L"], 2);
+
+module.exports = countLetters;
